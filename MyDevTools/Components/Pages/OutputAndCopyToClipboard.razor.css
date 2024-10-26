@@ -1,0 +1,35 @@
+﻿.monospace-font {
+    font-family: 'Consolas', 'Courier New', 'Lucida Console', 'Monaco', monospace;
+}
+
+.textarea {
+    overflow: hidden;
+    resize: none; /* Prevent manual resizing */
+    min-height: 6em; /* Set a more appropriate minimum height */
+    box-sizing: border-box; /* Include padding in the height calculation */
+    padding: 10px; /* Add padding for better appearance */
+    font-size: 1rem; /* Set a readable font size */
+    border: 1px solid var(--border-color); /* Subtle border color */
+    border-radius: 4px; /* Add border radius for smoother edges */
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: var(--success-color); /* Green color for success */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* Set a readable font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.button:hover {
+    background-color: var(--success-color-dark); /* Slightly darker green on hover */
+}
+
+.text-success {
+    color: var(--success-color); /* Green color for success */
+    font-weight: bold; /* Make the text bold for better visibility */
+    margin-top: 10px; /* Add margin to separate from other elements */
+}
