@@ -23,20 +23,12 @@
             </div>
 
             <button class="btn btn-primary btn-block" @onclick="GenerateGUID">Generate GUID</button>
-            <button class="btn btn-success btn-block" @onclick="CopyToClipboard">Copy to Clipboard</button>
         </div>
     </div>
 
     @if (guidResults != null && guidResults.Count > 0)
     {
-        <div class="row mt-4">
-            <div class="col-md-6 offset-md-3">
-                <div class="alert alert-success" role="alert">
-                    <strong>GUID Results:</strong>
-                    <pre>@string.Join("\n", guidResults)</pre>
-                </div>
-            </div>
-        </div>
+        <OutputAndCopyToClipboard OutputText="@string.Join("\n", guidResults)" />
     }
 </div>
 
@@ -69,18 +61,6 @@
                 guid = guid.ToUpper();
             }
             guidResults.Add(guid);
-        }
-    }
-
-    private async Task CopyToClipboard()
-    {
-        try
-        {
-            await ClipboardService.CopyToClipboardAsync(string.Join("\n", guidResults));
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Failed to copy to clipboard: " + ex.Message);
         }
     }
 }
