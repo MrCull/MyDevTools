@@ -2,12 +2,12 @@
 
 ## Overview
 
-Welcome to the repository for [MyDevTools.org](https://MyDevTools.org). 
+Welcome to the repository for [MyDevTools.org](https://www.mydevtools.org/). 
 
 Built on Blazor Web Assembly, this application provides utilities geared towards facilitating some software dev tasks. 
 One key feature of MyDevTools.org is its data privacy and security. All computational tasks are executed locally on your device, ensuring that your data never leaves your machine.
 
-Visit [MyDevTools.org](https://MyDevTools.org) to explore the application.
+Visit [MyDevTools.org](https://www.mydevtools.org/) to explore the application.
 
 ## Features
 
