@@ -1,30 +1,57 @@
-# MyDevTools.org Web Application
+# MyDevTools
 
-## Overview
+A comprehensive collection of developer tools built with Blazor WebAssembly. All tools process data locally in your browser - no data is sent over the internet!
 
-Welcome to the repository for [MyDevTools.org](https://www.mydevtools.org/). 
+## 🌐 Live Version
 
-Built on Blazor Web Assembly, this application provides utilities geared towards facilitating some software dev tasks. 
-One key feature of MyDevTools.org is its data privacy and security. All computational tasks are executed locally on your device, ensuring that your data never leaves your machine.
+* **Blazor Version**: [blazor.mydevtools.org](https://blazor.mydevtools.org)
 
-Visit [MyDevTools.org](https://www.mydevtools.org/) to explore the application.
+> Note: A Vue.js version is also available at [mydevtools.org](https://mydevtools.org) ([GitHub](https://github.com/MrCull/MyDevToolsVue))
 
-## Features
+## 🛠️ Features
 
-- Json Editor with syntax highlighting
-- Git branch name formatter
-- Random number generator
-- Hash generator
+* **📋 JSON Formatter**: Format and validate JSON with syntax highlighting
+* **🔀 Diff Checker**: Compare and visualize differences between texts
+* **🗄️ SQL Formatter**: Format SQL queries with syntax highlighting
+* **🔑 GUID Generator**: Generate unique GUIDs/UUIDs
+* **🎲 Random Numbers**: Generate random numbers with custom ranges
+* **🎨 Color Converter**: Convert between color formats (HEX, RGB, HSL)
+* **🔒 Hash Generator**: Generate secure hashes (MD5, SHA-1, SHA-256, etc.)
+* **🔗 URL Encoder/Decoder**: Encode and decode URLs with proper character escaping
+* **📱 QR Code Generator**: Create QR codes for any text or URL
+* **🌿 Branch Name Formatter**: Format Git branch names according to conventions
+* **⏰ Cron Generator**: Generate cron expressions with a visual interface
+* **🔐 JWT Decoder**: Decode and validate JSON Web Tokens
+* **📦 Container IDs**: Generate and manage container identifiers
 
-## Built With
+## 🔒 Privacy & Security
 
-- [.NET 8 ]([https://reactjs.org/](https://dotnet.microsoft.com/en-us/download/dotnet/8.0))
-- [Blazor]([https://getbootstrap.com/](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor))
+* All processing is done locally in your browser
+* No user input data is sent over the internet
+* No tracking or analytics
+* No data storage
 
-## Contribution
+## 🏗️ Technology Stack
 
-Feel free to submit pull requests.
+* [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+* [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+* [Bootstrap](https://getbootstrap.com/)
 
-## License
+## 🚀 Getting Started
 
-See the [LICENSE.txt](./LICENSE.txt) file for details.
+1. Clone the repository:
+```bash
+git clone https://github.com/MrCull/MyDevTools.git
+cd MyDevTools
+```
+
+2. Open the solution in Visual Studio
+3. Run the application
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the GPL-3.0 License - see the [LICENSE.txt](./LICENSE.txt) file for details.
