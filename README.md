@@ -4,7 +4,7 @@ A comprehensive collection of developer tools built with Blazor WebAssembly. All
 
 ## 🌐 Live Version
 
-* **Blazor Version**: [blazor.mydevtools.org](https://blazor.mydevtools.org)
+* **Blazor Version**: [www.blazor.mydevtools.org](https://www.blazor.mydevtools.org)
 
 > Note: A Vue.js version is also available at [mydevtools.org](https://mydevtools.org) ([GitHub](https://github.com/MrCull/MyDevToolsVue))
 

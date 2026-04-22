@@ -1,4 +1,4 @@
-﻿@page "/"
+@page "/"
 @using MyDevTools.Services
 @inject SeoService SeoService
 
@@ -16,80 +16,105 @@
     </script>
 </HeadContent>
 
-<!-- Hero Section -->
-<section class="hero-section bg-dark text-white text-center" aria-label="Introduction">
+<section class="hero-section" aria-label="Introduction">
     <div class="container">
-        <img src="/main-logo-white-transparent.svg" alt="My Dev Tools - Free Online Developer Tools" width="200" height="200" />
-        <h1 class="display-4 mt-3">My Dev Tools</h1>
-        <p class="lead">No user input data sent over the internet!</p> 
-        <p class="lead">All processing is done locally in your browser.</p>
-    </div>
-</section>
-
-<!-- Features Section -->
-<section class="features-section text-center" aria-label="Available Tools">
-    <div class="container">
-        <h2>Developer Tools</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <h3>JSON Formatter</h3>
-                <p>Clean and format your JSON with syntax highlighting and validation.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>SQL Formatter</h3>
-                <p>Format and beautify your SQL queries for better readability.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>GUID Generator</h3>
-                <p>Generate unique GUIDs/UUIDs for your applications.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Hash Generator</h3>
-                <p>Generate secure hashes using various algorithms.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>URL Encoder/Decoder</h3>
-                <p>Encode and decode URLs with proper character escaping.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>QR Code Generator</h3>
-                <p>Create QR codes for URLs, text, or contact information.</p>
-            </div>
+        <img src="/main-logo-white-transparent.svg" alt="My Dev Tools" class="hero-logo" width="110" height="110" />
+        <h1 class="hero-title">My Dev Tools</h1>
+        <p class="hero-subtitle">Free developer utilities that run entirely in your browser.</p>
+        <div class="hero-badges">
+            <span class="badge-pill"><span class="bi bi-shield-check"></span> No data sent over the internet</span>
+            <span class="badge-pill"><span class="bi bi-cpu"></span> Processed locally</span>
+            <span class="badge-pill"><span class="bi bi-eye-slash"></span> No tracking</span>
         </div>
     </div>
 </section>
 
-<!-- About Section -->
-<section class="about-section bg-light text-center" aria-label="Contribution">
+<section class="tools-section" aria-label="Available Tools">
     <div class="container">
-        <h2>Contribute to My Dev Tools</h2>
-        <p>Is this site missing a useful feature? Help us improve!</p>
-        <p>Log an Issue or submit a PR at: <a href="https://github.com/MrCull/MyDevTools" rel="noopener noreferrer">github.com/MrCull/MyDevTools</a></p>
+        <h2 class="section-title">All Tools</h2>
+        <div class="tools-grid">
+            <a href="JsonFormatter" class="tool-card">
+                <span class="tool-icon bi bi-code-square"></span>
+                <h3>JSON Formatter</h3>
+                <p>Format and validate JSON with syntax highlighting.</p>
+            </a>
+            <a href="DiffChecker" class="tool-card">
+                <span class="tool-icon bi bi-file-diff"></span>
+                <h3>Diff Checker</h3>
+                <p>Compare two texts and visualise the differences.</p>
+            </a>
+            <a href="SqlFormatter" class="tool-card">
+                <span class="tool-icon bi bi-table"></span>
+                <h3>SQL Formatter</h3>
+                <p>Beautify SQL queries for better readability.</p>
+            </a>
+            <a href="GuidGenerator" class="tool-card">
+                <span class="tool-icon bi bi-key-fill"></span>
+                <h3>GUID Generator</h3>
+                <p>Generate unique GUIDs/UUIDs instantly.</p>
+            </a>
+            <a href="randomNumberGenerator" class="tool-card">
+                <span class="tool-icon bi bi-dice-3"></span>
+                <h3>Random Numbers</h3>
+                <p>Generate random numbers with custom ranges.</p>
+            </a>
+            <a href="ColorPickerConverter" class="tool-card">
+                <span class="tool-icon bi bi-palette"></span>
+                <h3>Colour Converter</h3>
+                <p>Convert between HEX, RGB, and HSL colour formats.</p>
+            </a>
+            <a href="hashGenerator" class="tool-card">
+                <span class="tool-icon bi bi-lock-fill"></span>
+                <h3>Hash Generator</h3>
+                <p>Generate MD5, SHA-1, SHA-256, and other hashes.</p>
+            </a>
+            <a href="UrlEncoderDecoder" class="tool-card">
+                <span class="tool-icon bi bi-link-45deg"></span>
+                <h3>URL Encoder / Decoder</h3>
+                <p>Encode and decode URLs with proper escaping.</p>
+            </a>
+            <a href="QrCodeGen" class="tool-card">
+                <span class="tool-icon bi bi-qr-code"></span>
+                <h3>QR Code Generator</h3>
+                <p>Create QR codes from any text or URL.</p>
+            </a>
+            <a href="BranchNameFormatter" class="tool-card">
+                <span class="tool-icon bi bi-git"></span>
+                <h3>Branch Name Formatter</h3>
+                <p>Format Git branch names to match your conventions.</p>
+            </a>
+            <a href="CronGenerator" class="tool-card">
+                <span class="tool-icon bi bi-clock"></span>
+                <h3>Cron Generator</h3>
+                <p>Build cron expressions with a visual interface.</p>
+            </a>
+            <a href="JwtDecoder" class="tool-card">
+                <span class="tool-icon bi bi-shield-lock"></span>
+                <h3>JWT Decoder</h3>
+                <p>Decode and inspect JSON Web Tokens.</p>
+            </a>
+            <a href="containerIds" class="tool-card">
+                <span class="tool-icon bi bi-box"></span>
+                <h3>Container IDs</h3>
+                <p>Generate and manage container identifiers.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="contribute-section" aria-label="Contribute">
+    <div class="container">
+        <span class="bi bi-github contribute-icon"></span>
+        <h2>Open Source</h2>
+        <p>Missing a tool? Log an issue or submit a PR.</p>
+        <a href="https://github.com/MrCull/MyDevTools" class="github-link" rel="noopener noreferrer" target="_blank">
+            github.com/MrCull/MyDevTools
+        </a>
     </div>
 </section>
 
 @code {
     protected override void OnInitialized()
     {
-        // Add structured data for better SEO
-        var structuredData = new
-        {
-            context = "https://schema.org",
-            type = "WebApplication",
-            name = "My Dev Tools",
-            description = "Free online developer tools including JSON formatter, SQL formatter, GUID generator, hash generator, and more.",
-            url = "https://mydevtools.org",
-            applicationCategory = "DeveloperApplication",
-            operatingSystem = "Any",
-            offers = new
-            {
-                type = "Offer",
-                price = "0",
-                priceCurrency = "USD"
-            }
-        };
-
-        // You would need to implement a way to inject this into the page
-        // This could be done through a service or by adding it to the page's script section
     }
 }

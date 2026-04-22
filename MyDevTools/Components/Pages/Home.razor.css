@@ -1,23 +1,152 @@
-﻿/* Hero Section */
+/* Hero */
 .hero-section {
-    padding: 100px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1a3a5c 55%, #0f172a 100%);
+    color: #fff;
+    padding: 80px 0 70px;
+    text-align: center;
 }
 
-/* About Section */
-.about-section {
+.hero-logo {
+    margin-bottom: 1.25rem;
+    opacity: 0.92;
+}
+
+.hero-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.6rem;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.badge-pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 2rem;
+    padding: 0.35rem 1rem;
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Tools grid */
+.tools-section {
+    padding: 60px 0 70px;
+    background: #f8fafc;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2.25rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.1rem;
+}
+
+.tool-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.4rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+    border-color: #3b82f6;
+    color: inherit;
+    text-decoration: none;
+}
+
+.tool-icon {
+    font-size: 1.65rem;
+    color: #3b82f6;
+    margin-bottom: 0.7rem;
+}
+
+.tool-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 0.4rem;
+}
+
+.tool-card p {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Contribute */
+.contribute-section {
+    background: #1e293b;
+    color: #e2e8f0;
     padding: 50px 0;
+    text-align: center;
 }
 
-/* Features Section */
-.features-section {
-    padding: 50px 0;
-    background-color: #f9f9f9;
+.contribute-icon {
+    font-size: 2.25rem;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 0.75rem;
 }
 
-.features-section h3 {
-    margin-top: 20px;
+.contribute-section h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #f1f5f9;
 }
 
-.features-section p {
-    margin-top: 10px;
+.contribute-section p {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.github-link {
+    display: inline-block;
+    color: #60a5fa;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(96, 165, 250, 0.4);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.github-link:hover {
+    color: #93c5fd;
+    border-color: #93c5fd;
+    text-decoration: none;
 }
