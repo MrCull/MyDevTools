@@ -33,7 +33,7 @@ A comprehensive collection of developer tools built with Blazor WebAssembly. All
 
 ## 🏗️ Technology Stack
 
-* [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+* [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 * [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
 * [Bootstrap](https://getbootstrap.com/)
 
