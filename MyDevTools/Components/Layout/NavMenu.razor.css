@@ -1,84 +1,86 @@
-.navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+.brand-row {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-.top-row {
-    height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #f8fafc;
+    text-decoration: none;
 }
 
-.navbar-brand {
-    font-size: 1.1rem;
+.brand:hover { color: #fff; }
+.brand > span:last-child { display: flex; flex-direction: column; }
+.brand strong { font-size: 0.98rem; letter-spacing: -0.01em; }
+.brand small { color: #64748b; font-size: 0.68rem; }
+
+.brand-mark {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    color: #fff;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
 }
 
-.bi {
-    display: inline-block;
-    position: relative;
-    width: 1.25rem;
-/*    height: 1.25rem;*/
-    margin-right: 0.75rem;
-    top: -1px;
-    background-size: cover;
+.brand-mark .bi { margin: 0; font-size: 1.1rem; }
+.navbar-toggler { display: none; border-color: rgba(255,255,255,.18); }
+.navbar-toggler-icon { filter: invert(1); }
+
+.nav-scrollable { height: calc(100vh - 82px); overflow-y: auto; }
+nav { min-height: 100%; padding: 1.2rem 0.85rem; display: flex; flex-direction: column; }
+
+.nav-label {
+    display: block;
+    padding: 0 0.8rem 0.55rem;
+    color: #64748b;
+    font-size: 0.65rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
 }
 
+.tools-label { margin-top: 1.1rem; }
+.nav-item { margin-bottom: 0.18rem; }
 
-
-.bi-list-nested {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+.nav-item ::deep .nav-link,
+.external-link {
+    min-height: 40px;
+    padding: 0.55rem 0.75rem;
+    display: flex;
+    align-items: center;
+    color: #94a3b8;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 550;
+    text-decoration: none;
+    transition: color .15s, background-color .15s, transform .15s;
 }
 
-.nav-item {
-    font-size: 1rem;
-    padding-bottom: 0.5rem;
-}
+.nav-item ::deep .nav-link:hover,
+.external-link:hover { color: #f8fafc; background: rgba(148, 163, 184, 0.1); }
+.nav-item ::deep .nav-link.active { color: #fff; background: linear-gradient(90deg, rgba(79,70,229,.3), rgba(59,130,246,.12)); box-shadow: inset 3px 0 #818cf8; }
+.bi { width: 1.3rem; margin-right: 0.65rem; font-size: 0.95rem; text-align: center; }
 
-    .nav-item:first-of-type {
-        padding-top: 1rem;
-    }
+.nav-footer { margin-top: auto; padding-top: 1.4rem; }
+.privacy-note { padding: 0.85rem; display: flex; color: #94a3b8; background: rgba(15, 118, 110, .1); border: 1px solid rgba(45, 212, 191, .12); border-radius: 10px; }
+.privacy-note .bi { color: #2dd4bf; margin-top: 1px; }
+.privacy-note span:last-child { display: flex; flex-direction: column; }
+.privacy-note strong { color: #cbd5e1; font-size: .72rem; }
+.privacy-note small { margin-top: .15rem; color: #64748b; font-size: .65rem; }
+.external-link { margin-top: .55rem; }
 
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item ::deep a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-    }
-
-.nav-item ::deep a.active {
-    background-color: rgba(255,255,255,0.37);
-    color: white;
-}
-
-.nav-item ::deep a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
-
-@media (min-width: 641px) {
-    .navbar-toggler {
-        display: none;
-    }
-
-    .collapse {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
-    }
-    
-    .nav-scrollable {
-        /* Allow sidebar to scroll for tall menus */
-        height: calc(100vh - 3.5rem);
-        overflow-y: auto;
-    }
-}
-
-.nav-separator {
-    margin: 0.5rem 1rem;
-    border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    opacity: 0.5;
+@media (max-width: 767.98px) {
+    .brand-row { height: 64px; }
+    .navbar-toggler { display: block; }
+    .nav-scrollable { height: calc(100vh - 64px); }
+    .collapse { display: none; }
 }

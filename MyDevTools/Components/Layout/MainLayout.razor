@@ -1,15 +1,23 @@
 ﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar bg-dark text-white">
+
+<div class="page-shell">
+    <aside class="sidebar">
         <NavMenu />
-    </div>
+    </aside>
 
-    <main>
-@*         <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div> *@
+    <main class="main-panel">
+        <header class="app-header">
+            <div>
+                <span class="eyebrow">Developer utilities</span>
+                <strong>Private by design</strong>
+            </div>
+            <span class="local-badge">
+                <span class="status-dot" aria-hidden="true"></span>
+                Runs locally in your browser
+            </span>
+        </header>
 
-        <article class="content px-4">
+        <article class="content">
             @Body
         </article>
     </main>

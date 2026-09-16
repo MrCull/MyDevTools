@@ -1,35 +1,52 @@
-﻿.monospace-font {
-    font-family: 'Consolas', 'Courier New', 'Lucida Console', 'Monaco', monospace;
-}
-
-.textarea {
+.output-panel {
     overflow: hidden;
-    resize: none; /* Prevent manual resizing */
-    min-height: 6em; /* Set a more appropriate minimum height */
-    box-sizing: border-box; /* Include padding in the height calculation */
-    padding: 10px; /* Add padding for better appearance */
-    font-size: 1rem; /* Set a readable font size */
-    border: 1px solid var(--border-color); /* Subtle border color */
-    border-radius: 4px; /* Add border radius for smoother edges */
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 11px;
 }
 
-.button {
-    padding: 10px 20px;
-    background-color: var(--success-color); /* Green color for success */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem; /* Set a readable font size */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+.output-toolbar {
+    min-height: 43px;
+    padding: .45rem .55rem .45rem .85rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #64748b;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: .7rem;
+    font-weight: 750;
+    letter-spacing: .07em;
+    text-transform: uppercase;
 }
 
-.button:hover {
-    background-color: var(--success-color-dark); /* Slightly darker green on hover */
+.copy-button {
+    padding: .35rem .65rem;
+    color: #4f46e5;
+    background: #eef2ff;
+    border: 0;
+    border-radius: 7px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
-.text-success {
-    color: var(--success-color); /* Green color for success */
-    font-weight: bold; /* Make the text bold for better visibility */
-    margin-top: 10px; /* Add margin to separate from other elements */
+.copy-button:hover { background: #e0e7ff; }
+.copy-button .bi { margin-right: .3rem; }
+
+.output-text {
+    min-height: 150px;
+    margin: 0;
+    padding: 1rem;
+    color: #273449;
+    background: #f8fafc;
+    border: 0;
+    border-radius: 0;
+    resize: vertical;
+    box-shadow: none;
 }
+
+.output-text:focus { background: #fff; box-shadow: inset 0 0 0 2px rgba(99,102,241,.12); }
+.monospace-font { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: .82rem; line-height: 1.65; }
