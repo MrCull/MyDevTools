@@ -19,7 +19,7 @@
         @foreach (var item in Tools)
         {
             <div class="nav-item">
-                <NavLink class="nav-link" href="@item.Path" aria-label="Navigate to @item.Label">
+                <NavLink class="nav-link" href="@item.Path" aria-label="@($"Navigate to {item.Label}")">
                     <span class="bi @item.Icon" aria-hidden="true"></span> @item.Label
                 </NavLink>
             </div>
