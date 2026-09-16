@@ -32,8 +32,18 @@
 }
 
 .brand-mark .bi { margin: 0; font-size: 1.1rem; }
-.navbar-toggler { display: none; border-color: rgba(255,255,255,.18); }
-.navbar-toggler-icon { filter: invert(1); }
+.navbar-toggler {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    place-items: center;
+    color: #e2e8f0;
+    background: rgba(148, 163, 184, .08);
+    border: 1px solid rgba(148, 163, 184, .24);
+    border-radius: 10px;
+}
+.navbar-toggler .bi { width: auto; margin: 0; font-size: 1.45rem; line-height: 1; }
 
 .nav-scrollable { height: calc(100vh - 82px); overflow-y: auto; }
 nav { min-height: 100%; padding: 1.2rem 0.85rem; display: flex; flex-direction: column; }
@@ -80,7 +90,7 @@ nav { min-height: 100%; padding: 1.2rem 0.85rem; display: flex; flex-direction: 
 
 @media (max-width: 767.98px) {
     .brand-row { height: 64px; }
-    .navbar-toggler { display: block; }
+    .navbar-toggler { display: grid; }
     .nav-scrollable { height: calc(100vh - 64px); }
     .collapse { display: none; }
 }

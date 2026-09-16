@@ -17,21 +17,31 @@
 </HeadContent>
 
 <section class="hero-section" aria-label="Introduction">
-    <div class="container">
-        <img src="/main-logo-white-transparent.svg" alt="My Dev Tools" class="hero-logo" width="110" height="110" />
-        <h1 class="hero-title">My Dev Tools</h1>
-        <p class="hero-subtitle">Free developer utilities that run entirely in your browser.</p>
-        <div class="hero-badges">
-            <span class="badge-pill"><span class="bi bi-shield-check"></span> No data sent over the internet</span>
-            <span class="badge-pill"><span class="bi bi-cpu"></span> Processed locally</span>
-            <span class="badge-pill"><span class="bi bi-eye-slash"></span> No tracking</span>
+    <div class="container hero-content">
+        <div class="hero-logo-wrap" aria-hidden="true">
+            <img src="/main-logo-white-transparent.svg" alt="" class="hero-logo" width="72" height="72" />
         </div>
+        <span class="hero-eyebrow"><span class="status-dot"></span> Fast, private and free</span>
+        <h1 class="hero-title">Everyday developer tools,<br /><span>without the data grab.</span></h1>
+        <p class="hero-subtitle">Format, generate, encode and inspect—all in your browser. Your input never leaves your device.</p>
+        <div class="hero-badges">
+            <span class="badge-pill"><span class="bi bi-shield-check"></span> Stays on your device</span>
+            <span class="badge-pill"><span class="bi bi-lightning-charge"></span> Instant results</span>
+            <span class="badge-pill"><span class="bi bi-eye-slash"></span> Zero tracking</span>
+        </div>
+        <a class="hero-cta" href="#all-tools">Browse all tools <span class="bi bi-arrow-down" aria-hidden="true"></span></a>
     </div>
 </section>
 
-<section class="tools-section" aria-label="Available Tools">
+<section class="tools-section" id="all-tools" aria-label="Available Tools">
     <div class="container">
-        <h2 class="section-title">All Tools</h2>
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">Toolbox</span>
+                <h2 class="section-title">Pick a tool and get to work</h2>
+            </div>
+            <span class="tool-count">13 tools · No sign-up</span>
+        </div>
         <div class="tools-grid">
             <a href="JsonFormatter" class="tool-card">
                 <span class="tool-icon bi bi-code-square"></span>
