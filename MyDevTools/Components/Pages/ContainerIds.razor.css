@@ -1,0 +1,28 @@
+.tool-heading { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+.heading-icon { width: 52px; height: 52px; flex: 0 0 auto; display: grid; place-items: center; color: #4f46e5; background: #eef2ff; border: 1px solid #e0e7ff; border-radius: 14px; font-size: 1.35rem; }
+.eyebrow { display: block; margin-bottom: .25rem; color: #6366f1; font-size: .68rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+h1 { margin: 0; color: #172033; font-size: 1.85rem; font-weight: 750; letter-spacing: -.04em; }
+.tool-heading p { margin: .35rem 0 0; color: #718096; font-size: .9rem; }
+.generator-card { max-width: 936px; margin: 0 auto 3rem; padding: 1.6rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 1px 2px rgba(15,23,42,.04), 0 8px 30px rgba(15,23,42,.04); }
+.form-grid { display: grid; grid-template-columns: 1fr 180px; gap: 1rem; }
+label { display: block; margin-bottom: .45rem; color: #334155; font-size: .8rem; font-weight: 700; }
+small { display: block; margin-top: .4rem; color: #94a3b8; font-size: .72rem; }
+.prefix-input { text-transform: uppercase; }
+.generate-button { margin-top: 1.35rem; }
+.generate-button .bi { margin-right: .35rem; }
+.validation-alert { margin-top: 1rem; padding: .72rem .85rem; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 9px; font-size: .82rem; }
+.validation-alert .bi { margin-right: .5rem; }
+.result-header { margin: 1.7rem 0 .65rem; padding-top: 1.25rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #edf0f4; color: #64748b; font-size: .75rem; }
+.result-header div { display: flex; align-items: center; gap: .55rem; }
+.result-header strong { color: #334155; font-size: .82rem; }
+.status-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 4px rgba(34,197,94,.12); }
+.check-note { margin: .75rem 0 0; color: #718096; font-size: .72rem; }
+.check-note .bi { margin-right: .35rem; color: #16a34a; }
+@media (max-width: 767.98px) {
+    .tool-heading { padding: 1.6rem 1rem 1rem; align-items: flex-start; }
+    .heading-icon { width: 44px; height: 44px; }
+    h1 { font-size: 1.5rem; }
+    .generator-card { margin: 0 1rem 2rem; padding: 1rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .generate-button { width: 100%; }
+}

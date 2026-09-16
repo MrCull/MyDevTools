@@ -1,103 +1,129 @@
 ﻿@page "/containerIds"
 @inherits Base.BasePage
-@inject Services.IClipboardService ClipboardService
 @using System.Text
 
-<h3 class="text-center">Container Ids</h3>
+<PageTitle>ISO 6346 Container ID Generator - My Dev Tools</PageTitle>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-5 offset-md-3">
-            <div class="form-group">
-                <label for="prefix">Optional Prefix (e.g. MSCU):</label>
-                <input id="prefix" type="text" maxlength="4" class="form-control" @bind="prefix" />
-            </div>
+<section class="tool-heading">
+    <span class="heading-icon bi bi-box-seam" aria-hidden="true"></span>
+    <div>
+        <span class="eyebrow">Logistics utility</span>
+        <h1>Container ID Generator</h1>
+        <p>Generate correctly formatted ISO 6346 shipping container identification numbers.</p>
+    </div>
+</section>
 
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input id="quantity" type="number" class="form-control" @bind="quantity" />
-            </div>
-
-            <div class="d-flex justify-content-between">
-                <button class="btn btn-primary btn-block" @onclick="GenerateCodes">Generate Ids</button>
-            </div>
+<div class="generator-card">
+    <div class="form-grid">
+        <div>
+            <label for="prefix">Owner prefix</label>
+            <input id="prefix" type="text" maxlength="4" class="form-control prefix-input"
+                   placeholder="Random (e.g. MSCU)" @bind="prefix" @bind:event="oninput"
+                   aria-describedby="prefix-help" />
+            <small id="prefix-help">Leave blank for a known owner code, or enter three letters followed by U, J, or Z.</small>
+        </div>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number" min="1" max="100" class="form-control" @bind="quantity" />
+            <small>Generate between 1 and 100 identifiers.</small>
         </div>
     </div>
 
+    @if (!string.IsNullOrEmpty(validationMessage))
+    {
+        <div class="validation-alert" role="alert"><span class="bi bi-exclamation-circle"></span>@validationMessage</div>
+    }
+
+    <button class="btn btn-primary generate-button" @onclick="GenerateCodes">
+        <span class="bi bi-stars" aria-hidden="true"></span> Generate container IDs
+    </button>
+
     @if (!string.IsNullOrEmpty(generatedCodes))
     {
+        <div class="result-header">
+            <div><span class="status-dot"></span><strong>Valid ISO 6346 IDs</strong></div>
+            <span>@generatedCount generated</span>
+        </div>
         <OutputAndCopyToClipboard OutputText="@generatedCodes" />
+        <p class="check-note"><span class="bi bi-check2-circle"></span> Each final digit is calculated from the owner code and six-digit serial number using the ISO 6346 checksum.</p>
     }
 </div>
 
 @code {
     private string prefix = "";
     private int quantity = 5;
+    private int generatedCount;
     private string generatedCodes = "";
-    string copyConfirmationMessage = "";
-    private string[] commonPrefixes = {
-    "MSCU", "MAEU", "TCNU", "CGMU", "SEGU",
-    "APMU", "CMAU", "UACU", "SUDU", "TRLU",
-    "PONU", "TEMU", "OOLU", "SWMU", "CPSU",
-    "FSCU", "TTNU", "IPXU", "AMZU", "CRXU",
-    "AZLU", "EISU", "BSIU", "NYKU", "YMLU"};
+    private string validationMessage = "";
 
+    private static readonly string[] CommonPrefixes =
+    [
+        "MSCU", "MAEU", "TCNU", "CGMU", "SEGU", "APMU", "CMAU", "UACU", "SUDU", "TRLU",
+        "PONU", "TEMU", "OOLU", "SWMU", "CPSU", "FSCU", "TTNU", "IPXU", "AMZU", "CRXU",
+        "AZLU", "EISU", "BSIU", "NYKU", "YMLU"
+    ];
 
     protected override async Task OnInitializedAsync()
     {
-        await UpdateMetaTagsAsync("Generate container IDs.", "Container IDs, Dev Tools, Identifier");
-
+        await UpdateMetaTagsAsync(
+            "Generate valid ISO 6346 shipping container IDs with correctly calculated check digits.",
+            "ISO 6346, Container IDs, Check Digit, Developer Tools");
         GenerateCodes();
     }
 
     private void GenerateCodes()
     {
         generatedCodes = "";
+        generatedCount = 0;
+        validationMessage = "";
+        var normalizedPrefix = prefix.Trim().ToUpperInvariant();
 
-        if (!string.IsNullOrWhiteSpace(prefix) && prefix.Length > 0 && prefix.Length < 4)
+        if (quantity is < 1 or > 100)
         {
+            validationMessage = "Quantity must be between 1 and 100.";
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
-        Random random = new Random();
-        for (int i = 1; i <= quantity; i++)
+        if (normalizedPrefix.Length > 0 && !IsValidPrefix(normalizedPrefix))
         {
-            string number = random.Next(100000, 999999).ToString(); // Generate a random 7-digit number
-            string thisPrefix = string.IsNullOrWhiteSpace(prefix) || prefix.Length != 4 ? GeneratePrefix() : prefix;
-            sb.AppendLine($"{thisPrefix}{number}{CalculateCheckDigit(prefix + number)}"); // Append the correct check code
+            validationMessage = "Use a four-letter prefix: three owner letters followed by U, J, or Z.";
+            return;
         }
 
-        generatedCodes = sb.ToString();
-    }
-
-    private string GeneratePrefix()
-    {
-        Random rand = new Random();
-        return commonPrefixes[rand.Next(commonPrefixes.Length)];
-    }
-
-    private int CalculateCheckDigit(string containerCode)
-    {
-        int sum = 0;
-        int factor = 1;
-        for (int i = 0; i < containerCode.Length; i++)
+        var output = new StringBuilder();
+        for (var i = 0; i < quantity; i++)
         {
-            int charValue;
-            char ch = containerCode[i];
-            if (char.IsLetter(ch))
-            {
-                // A=10, B=12, ..., Z=52
-                charValue = (ch - 'A' + 10);
-            }
-            else
-            {
-                // '0' = 0, '1' = 1, ..., '9' = 9
-                charValue = (ch - '0');
-            }
-            sum += charValue * factor;
-            factor *= 2;
+            var ownerCode = normalizedPrefix.Length == 0
+                ? CommonPrefixes[Random.Shared.Next(CommonPrefixes.Length)]
+                : normalizedPrefix;
+            var serialNumber = Random.Shared.Next(0, 1_000_000).ToString("D6");
+            var codeWithoutCheckDigit = ownerCode + serialNumber;
+            output.AppendLine(codeWithoutCheckDigit + CalculateCheckDigit(codeWithoutCheckDigit));
         }
-        return sum % 11 % 10;
+
+        prefix = normalizedPrefix;
+        generatedCount = quantity;
+        generatedCodes = output.ToString().TrimEnd();
+    }
+
+    private static bool IsValidPrefix(string value) =>
+        value.Length == 4 &&
+        value.All(character => character is >= 'A' and <= 'Z') &&
+        value[3] is 'U' or 'J' or 'Z';
+
+    private static int CalculateCheckDigit(string containerCode)
+    {
+        var sum = 0;
+        for (var position = 0; position < containerCode.Length; position++)
+        {
+            var character = containerCode[position];
+            var value = char.IsDigit(character)
+                ? character - '0'
+                : character - 'A' + 10 + ((character - 'A' + 10) - 1) / 10;
+            sum += value * (1 << position);
+        }
+
+        var remainder = sum % 11;
+        return remainder == 10 ? 0 : remainder;
     }
 }
