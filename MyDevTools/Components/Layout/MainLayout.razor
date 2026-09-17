@@ -1,4 +1,5 @@
-﻿@inherits LayoutComponentBase
+﻿@using System.Reflection
+@inherits LayoutComponentBase
 
 <div class="page-shell">
     <aside class="sidebar">
@@ -20,5 +21,39 @@
         <article class="content">
             @Body
         </article>
+
+        <footer class="build-footer" aria-label="Deployment information">
+            <span>Released <time datetime="@BuildDate">@FormattedBuildDate</time></span>
+            <span class="footer-separator" aria-hidden="true">&bull;</span>
+            <span>Commit <code>@ShortCommitHash</code></span>
+        </footer>
     </main>
 </div>
+
+@code {
+    private static readonly IReadOnlyDictionary<string, string> BuildMetadata =
+        typeof(MainLayout).Assembly
+            .GetCustomAttributes<AssemblyMetadataAttribute>()
+            .ToDictionary(attribute => attribute.Key, attribute => attribute.Value ?? string.Empty);
+
+    private static string BuildDate => GetBuildMetadata("BuildDate", "unknown");
+
+    private static string FormattedBuildDate =>
+        DateTimeOffset.TryParse(BuildDate, out var date)
+            ? date.ToUniversalTime().ToString("dd MMM yyyy, HH:mm 'UTC'")
+            : BuildDate;
+
+    private static string ShortCommitHash
+    {
+        get
+        {
+            var commitHash = GetBuildMetadata("CommitHash", "unknown");
+            return commitHash.Length > 7 ? commitHash[..7] : commitHash;
+        }
+    }
+
+    private static string GetBuildMetadata(string key, string fallback) =>
+        BuildMetadata.TryGetValue(key, out var value) && !string.IsNullOrWhiteSpace(value)
+            ? value
+            : fallback;
+}
