@@ -4,7 +4,14 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BuildDate Condition="'$(BuildDate)' == ''">$([System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ'))</BuildDate>
+    <CommitHash Condition="'$(CommitHash)' == ''">local</CommitHash>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyMetadata Include="BuildDate" Value="$(BuildDate)" />
+    <AssemblyMetadata Include="CommitHash" Value="$(CommitHash)" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Components\Pages\Home.razor.css" />

@@ -17,6 +17,9 @@
 .main-panel {
     min-width: 0;
     flex: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .app-header {
@@ -75,6 +78,31 @@
 
 .content {
     min-height: calc(100vh - 72px);
+    flex: 1;
+}
+
+.build-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 1rem 2.25rem;
+    color: var(--muted-color);
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.75rem;
+}
+
+.build-footer code {
+    padding: 0.15rem 0.4rem;
+    color: var(--heading-color);
+    background: #f1f5f9;
+    border-radius: 0.3rem;
+    font-size: inherit;
+}
+
+.footer-separator {
+    color: #cbd5e1;
 }
 
 @media (max-width: 767.98px) {
@@ -95,5 +123,10 @@
 
     .content {
         min-height: calc(100vh - 64px);
+    }
+
+    .build-footer {
+        padding: 0.9rem 1rem;
+        font-size: 0.7rem;
     }
 }
